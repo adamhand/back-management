@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.RecordMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Record" >
+    <id column="record_id" property="recordId" jdbcType="INTEGER" />
+    <result column="record_type" property="recordType" jdbcType="VARCHAR" />
+    <result column="record_start_time" property="recordStartTime" jdbcType="TIMESTAMP" />
+    <result column="record_stop_time" property="recordStopTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    record_id, record_type, record_start_time, record_stop_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_record
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_record
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pojo.Record" >
+    insert into t_record (record_id, record_type, record_start_time, 
+      record_stop_time)
+    values (#{recordId,jdbcType=INTEGER}, #{recordType,jdbcType=VARCHAR}, #{recordStartTime,jdbcType=TIMESTAMP}, 
+      #{recordStopTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.Record" >
+    insert into t_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordId != null" >
+        record_id,
+      </if>
+      <if test="recordType != null" >
+        record_type,
+      </if>
+      <if test="recordStartTime != null" >
+        record_start_time,
+      </if>
+      <if test="recordStopTime != null" >
+        record_stop_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordId != null" >
+        #{recordId,jdbcType=INTEGER},
+      </if>
+      <if test="recordType != null" >
+        #{recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="recordStartTime != null" >
+        #{recordStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordStopTime != null" >
+        #{recordStopTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Record" >
+    update t_record
+    <set >
+      <if test="recordType != null" >
+        record_type = #{recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="recordStartTime != null" >
+        record_start_time = #{recordStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordStopTime != null" >
+        record_stop_time = #{recordStopTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Record" >
+    update t_record
+    set record_type = #{recordType,jdbcType=VARCHAR},
+      record_start_time = #{recordStartTime,jdbcType=TIMESTAMP},
+      record_stop_time = #{recordStopTime,jdbcType=TIMESTAMP}
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+</mapper>

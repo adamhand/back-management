@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>商品购买系统</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" th:href="@{~/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../static/vendor/metisMenu/metisMenu.min.css" th:href="@{~/vendor/metisMenu/metisMenu.min.css}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../static/dist/css/sb-admin-2.css" th:href="@{~/dist/css/sb-admin-2.css}" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../static/vendor/morrisjs/morris.css" th:href="@{~/vendor/morrisjs/morris.css}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" th:href="@{~/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="wrapper">
+
+<!--        &lt;!&ndash; Navigation &ndash;&gt;
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                            <em>Yesterday</em>
+                                        </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                            <em>Yesterday</em>
+                                        </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                            <em>Yesterday</em>
+                                        </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    &lt;!&ndash; /.dropdown-messages &ndash;&gt;
+                </li>
+                &lt;!&ndash; /.dropdown &ndash;&gt;
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 1</strong>
+                                        <span class="pull-right text-muted">40% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 2</strong>
+                                        <span class="pull-right text-muted">20% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                            <span class="sr-only">20% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 3</strong>
+                                        <span class="pull-right text-muted">60% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 4</strong>
+                                        <span class="pull-right text-muted">80% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete (danger)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Tasks</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    &lt;!&ndash; /.dropdown-tasks &ndash;&gt;
+                </li>
+                &lt;!&ndash; /.dropdown &ndash;&gt;
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    &lt;!&ndash; /.dropdown-alerts &ndash;&gt;
+                </li>
+                &lt;!&ndash; /.dropdown &ndash;&gt;
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    &lt;!&ndash; /.dropdown-user &ndash;&gt;
+                </li>
+                &lt;!&ndash; /.dropdown &ndash;&gt;
+            </ul>
+        </nav>-->
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">商品列表</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                <tr>
+                                    <th>商品ID</th>
+                                    <th>商品名称</th>
+                                    <th>图片展示</th>
+                                    <th>价格</th>
+                                    <th>剩余数量</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="odd gradeX">
+                                    <td id="id1">1</td>
+                                    <td>《围城》</td>
+                                    <td>
+                                        <img th:width="100" th:height="100" th:src="@{~/pictures/weicheng.jpg}">
+                                    </td>
+                                    <td>￥30</td>
+                                    <td class="center" id="stock1">10</td>
+                                    <td>
+                                        <button type="button" class="btn btn-default" id="bt1" onclick="buyProduct(id)">购买</button>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td id="id2">2</td>
+                                    <td>《白夜行》</td>
+                                    <td>
+                                        <img th:width="100" th:height="100" th:src="@{~/pictures/baiyexing.jpg}">
+                                    </td>
+                                    <td>￥50</td>
+                                    <td class="center" id="stock2">5</td>
+                                    <td>
+                                        <button type="button" class="btn btn-default" id="bt2" onclick="buyProduct(id)">购买</button>
+                                    </td>
+                                </tr>
+                                <tr class="odd gradeA">
+                                    <td id="id3">3</td>
+                                    <td>《死神的精确度》</td>
+                                    <td>
+                                        <img th:width="100" th:height="100" th:src="@{~/pictures/sishendejingquedu.jpg}">
+                                    </td>
+                                    <td>￥50</td>
+                                    <td class="center" id="stock3">5</td>
+                                    <td>
+                                        <button type="button" class="btn btn-default" id="bt3" onclick="buyProduct(id)">购买</button>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeA">
+                                    <td id="id4">4</td>
+                                    <td>《重力小丑》</td>
+                                    <td>
+                                        <img th:width="100" th:height="100" th:src="@{~/pictures/zhonglixiaochou.jpg}">
+                                    </td>
+                                    <td>￥40</td>
+                                    <td class="center" id="stock4">6</td>
+                                    <td>
+                                        <button type="button" class="btn btn-default" id="bt4" onclick="buyProduct(id)">购买</button>
+                                    </td>
+                                </tr>
+                                <tr class="odd gradeA">
+                                    <td id="id5">5</td>
+                                    <td>《哥伦比亚的倒影》</td>
+                                    <td>
+                                        <img th:width="100" th:height="100" th:src="@{~/pictures/gelunbiyadedaoying.jpg}">
+                                    </td>
+                                    <td>￥20</td>
+                                    <td class="center" id="stock5">7</td>
+                                    <td>
+                                        <button type="button" class="btn btn-default" id="bt5" onclick="buyProduct(id)">购买</button>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeA">
+                                    <td id="id6">6</td>
+                                    <td>《Java并发编程实战》</td>
+                                    <td>
+                                        <img th:width="100" th:height="100" th:src="@{~/pictures/javabingfabianchengshizhan.jpg}">
+                                    </td>
+                                    <td>￥60</td>
+                                    <td class="center" id="stock6">6</td>
+                                    <td>
+                                        <button type="button" class="btn btn-default" id="bt6" onclick="buyProduct(id)">购买</button>
+                                    </td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td id="id7">7</td>
+                                    <td>《深入理解Java虚拟机》</td>
+                                    <td>
+                                        <img th:width="100" th:height="100" th:src="@{~/pictures/shenrulijiejavaxuniji.jpg}">
+                                    </td>
+                                    <td>￥60</td>
+                                    <td class="center" id="stock7">17</td>
+                                    <td>
+                                        <button type="button" class="btn btn-default" id="bt7" onclick="buyProduct(id)">购买</button>
+                                    </td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td id="id8">8</td>
+                                    <td>《Netty实战》</td>
+                                    <td>
+                                        <img th:width="100" th:height="100" th:src="@{~/pictures/nettyinaction.jpg}">
+                                    </td>
+                                    <td>￥50</td>
+                                    <td class="center" id="stock8">18</td>
+                                    <td>
+                                        <button type="button" class="btn btn-default" id="bt8" onclick="buyProduct(id)">购买</button>
+                                    </td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td id="id9">9</td>
+                                    <td>《C和指针》</td>
+                                    <td>
+                                        <img th:width="100" th:height="100" th:src="@{~/pictures/chezhizhen.jpg}">
+                                    </td>
+                                    <td>￥50</td>
+                                    <td class="center" id="stock9">18</td>
+                                    <td>
+                                        <button type="button" class="btn btn-default" id="bt9" onclick="buyProduct(id)">购买</button>
+                                    </td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td id="id10">10</td>
+                                    <td>《Go程序设计语言》</td>
+                                    <td>
+                                        <img th:width="100" th:height="100" th:src="@{~/pictures/gochengxushejiyuyan.jpg}">
+                                    </td>
+                                    <td>￥45</td>
+                                    <td class="center" id="stock10">19</td>
+                                    <td>
+                                        <button type="button" class="btn btn-default" id="bt10" onclick="buyProduct(id)">购买</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script th:src="@{~/vendor/jquery/jquery.min.js}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script th:src="@{~/vendor/bootstrap/js/bootstrap.min.js}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script th:src="@{~/vendor/metisMenu/metisMenu.min.js}"></script>
+
+    <!-- DataTables JavaScript -->
+    <script th:src="@{~/vendor/datatables/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{~/vendor/datatables-plugins/dataTables.bootstrap.min.js}"></script>
+    <script th:src="@{~/vendor/datatables-responsive/dataTables.responsive.js}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script th:src="@{~/dist/js/sb-admin-2.js}"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script type="text/javascript" th:inline="javascript">
+        $(document).ready(function() {
+            $('#dataTables-example').DataTable({
+                responsive: true
+            });
+        });
+
+        $(function () {
+            $.ajax({
+                async : false,
+                url : "/productInit",
+                type : "GET",
+                dataType : "json",
+                success : function (data) {
+                    $("#id1").val(data['productIdOne']);
+                    $("#id2").val(data['productIdTwo']);
+                    $("#id3").val(data['productIdThree']);
+                    $("#id4").val(data['productIdFour']);
+                    $("#id5").val(data['productIdFive']);
+                    $("#id6").val(data['productIdSix']);
+                    $("#id7").val(data['productIdSeven']);
+                    $("#id8").val(data['productIdEight']);
+                    $("#id9").val(data['productIdNight']);
+                    $("#id10").val(data['productIdTen']);
+
+                    $("#stock1").val(data['productInitStock1']);
+                    $("#stock2").val(data['productInitStock2']);
+                    $("#stock3").val(data['productInitStock3']);
+                    $("#stock4").val(data.productInitStock4);
+                    $("#stock5").val(data['productInitStock5']);
+                    $("#stock6").val(data['productInitStock6']);
+                    $("#stock7").val(data['productInitStock7']);
+                    $("#stock8").val(data['productInitStock8']);
+                    $("#stock9").val(data['productInitStock9']);
+                    $("#stock10").val(data['productInitStock10']);
+
+                    $("#stock1").text(data['productInitStock1']);
+                    $("#stock2").text(data['productInitStock2']);
+                    $("#stock3").text(data['productInitStock3']);
+                    $("#stock4").text(data.productInitStock4);
+                    $("#stock5").text(data['productInitStock5']);
+                    $("#stock6").text(data['productInitStock6']);
+                    $("#stock7").text(data['productInitStock7']);
+                    $("#stock8").text(data['productInitStock8']);
+                    $("#stock9").text(data['productInitStock9']);
+                    $("#stock10").text(data['productInitStock10']);
+                }
+            });
+        });
+
+        function buyProduct(id) {
+            var goodsId;
+            var goodsStock;
+            // alert(id);
+
+            switch (id) {
+                case 'bt1':
+                    goodsId = 1;
+                    goodsStock = $("#stock1").val();
+                    break;
+                case 'bt2':
+                    goodsId = 2;
+                    goodsStock = $("#stock2").val();
+                    // alert(goodsStock);
+                    break;
+                case 'bt3':
+                    goodsId = 3;
+                    goodsStock = $("#stock3").val();
+                    break;
+                case 'bt4':
+                    goodsId = 4;
+                    goodsStock = $("#stock4").val();
+                    break;
+                case 'bt5':
+                    goodsId = 5;
+                    goodsStock = $("#stock5").val();
+                    break;
+                case 'bt6':
+                    goodsId = 6;
+                    goodsStock = $("#stock6").val();
+                    break;
+                case 'bt7':
+                    goodsId = 7;
+                    goodsStock = $("#stock7").val();
+                    break;
+                case 'bt8':
+                    goodsId = 8;
+                    goodsStock = $("#stock8").val();
+                    break;
+                case 'bt9':
+                    goodsId = 9;
+                    goodsStock = $("#stock9").val();
+                    break;
+                case 'bt10':
+                    goodsId = 10;
+                    goodsStock = $("#stock10").val();
+                    break;
+                default:
+                    //goodsId = -1;
+                    break;
+            }
+            $.ajax({
+                url : "/buyProduct?goodsId=" + goodsId,
+                // data : {goodsId : goodsId},
+                type : "GET",
+                success : function (result) {
+                    alert(result.msg);
+                    switch (id) {
+                        case 'bt1':
+                            $("#stock1").text(goodsStock - 1);
+                            $("#stock1").val(goodsStock - 1);
+                            break;
+                        case 'bt2':
+                            $("#stock2").text(goodsStock - 1);
+                            $("#stock2").val(goodsStock - 1);
+                            break;
+                        case 'bt3':
+                            $("#stock3").text(goodsStock - 1);
+                            $("#stock3").val(goodsStock - 1);
+                            break;
+                        case 'bt4':
+                            $("#stock4").text(goodsStock - 1);
+                            $("#stock4").val(goodsStock - 1);
+                            break;
+                        case 'bt5':
+                            $("#stock5").text(goodsStock - 1);
+                            $("#stock5").val(goodsStock - 1);
+                            break;
+                        case 'bt6':
+                            $("#stock6").text(goodsStock - 1);
+                            $("#stock6").val(goodsStock - 1);
+                            break;
+                        case 'bt7':
+                            $("#stock7").text(goodsStock - 1);
+                            $("#stock7").val(goodsStock - 1);
+                            break;
+                        case 'bt8':
+                            $("#stock8").text(goodsStock - 1);
+                            $("#stock8").val(goodsStock - 1);
+                            break;
+                        case 'bt9':
+                            $("#stock9").text(goodsStock - 1);
+                            $("#stock9").val(goodsStock - 1);
+                            break;
+                        case 'bt10':
+                            $("#stock10").text(goodsStock - 1);
+                            $("#stock10").val(goodsStock - 1);
+                            break;
+                        default:
+                            break;
+                    }
+                },
+                error : function () {
+                    alert("error happened")
+                }
+            })
+        }
+    </script>
+</body>
+</html>
