@@ -1,4 +1,4 @@
-## Spring整合Mybatis
+## 商品后台管理系统
 
 ## 环境
 
@@ -8,6 +8,9 @@
 - mysql 8.0
 - mysql-connector-java 8.0.11
 - idea 2018
+
+## 功能
+Spring boot+Mybatis+thymeleaf+bootstrap。使用令牌桶进行一级限流；使用RabbitMQ进行流量削峰；使用Redis实现缓存。
 
 参考
 [Spring boot Mybatis 整合（完整版）](https://blog.csdn.net/Winter_chen001/article/details/77249029)
