@@ -1,12 +1,11 @@
 package com.service.impl;
 
-import com.RateLimiteService.RateLimiterService;
+import com.ratelimiteservice.RateLimiterService;
 import com.alibaba.fastjson.JSONObject;
 import com.commons.Constant;
 import com.dao.BookMapper;
 import com.pojo.Book;
 import com.pojo.Record;
-import com.rabbitmq.client.AMQP;
 import com.redis.RedisOperation;
 import com.service.RecordService;
 import org.springframework.amqp.core.Message;

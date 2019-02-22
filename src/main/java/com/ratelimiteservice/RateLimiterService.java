@@ -1,8 +1,7 @@
-package com.RateLimiteService;
+package com.ratelimiteservice;
 
 import com.commons.Constant;
 import com.google.common.util.concurrent.RateLimiter;
-import org.springframework.context.annotation.Configuration;
 
 public class RateLimiterService {
     private static RateLimiter limiter = RateLimiter.create(Constant.LIMITE_RATE);
