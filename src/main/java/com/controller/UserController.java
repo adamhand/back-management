@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.dao.UserMapper;
 import com.pojo.User;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +50,18 @@ public class UserController {
     @ResponseBody
     public Map<String, Object> login(@RequestParam("username") String username, @RequestParam("password") String password){
         Map<String, Object> map = new HashMap<>();
-        System.out.println(username + " " +password);
+//        System.out.println(username + " " +password);
 
-        map.put("success", true);
-        map.put("msg", "hahahahahaha");
+        boolean isUserExist = false;
+        isUserExist = userService.findUserByNameAndPassword(username, password);
+
+        if (isUserExist){
+            map.put("success", true);
+            map.put("msg", "login successful");
+        }else {
+            map.put("success", false);
+            map.put("msg", "username or password is not correct");
+        }
 
         return map;
     }

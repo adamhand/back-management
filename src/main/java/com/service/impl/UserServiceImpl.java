@@ -33,4 +33,14 @@ public class UserServiceImpl implements UserService {
         PageHelper.startPage(pageNum, pageSize);
         return userMapper.selectAllUser();
     }
+
+    @Override
+    public boolean findUserByNameAndPassword(String username, String password) {
+        User user = userMapper.determinUserByNameAndPassword(username, password);
+        if (user == null){
+            return false;
+        }else {
+            return true;
+        }
+    }
 }

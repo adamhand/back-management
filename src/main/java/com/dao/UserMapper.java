@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.pojo.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
 
     List<User> selectAllUser();
+
+    User determinUserByNameAndPassword(@Param("userName") String username, @Param("password") String password);
 }
