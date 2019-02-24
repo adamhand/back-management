@@ -35,4 +35,7 @@ insert into t_book values(7,''《深入理解Java虚拟机》'',''周志明'',60
 insert into t_book values(8,''《Netty实战》'',''Norman Maurer'',50,10000,''计算机'');
 insert into t_book values(9,''《C和指针》'',''Kenneth A. Reek'',50,10000,''计算机'');
 insert into t_book values(10,''《Go程序设计语言》'',''Alan A.A. Donovan'',45,10000,''计算机'');
+
+insert into t_user values(1,''adamhand'',''123456'',''1996xxxxx35'');
+insert into t_user values(2,''Bob'',''123456'',''1043xxxxx43'');
 `

@@ -4,9 +4,10 @@ import com.pojo.User;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping()
@@ -36,5 +37,23 @@ public class UserController {
     @RequestMapping(value = "/list", produces = {"application/json;charset=UTF-8"})
     public String list(){
         return "list";
+    }
+
+
+    @RequestMapping(value = "/login", produces = "application/json;charset=UTF-8")
+    public String login(){
+        return "login";
+    }
+
+    @RequestMapping(value = "/login1", produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public Map<String, Object> login(@RequestParam("username") String username, @RequestParam("password") String password){
+        Map<String, Object> map = new HashMap<>();
+        System.out.println(username + " " +password);
+
+        map.put("success", true);
+        map.put("msg", "hahahahahaha");
+
+        return map;
     }
 }
