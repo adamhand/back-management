@@ -13,7 +13,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserMapper userMapper;//这里会报错，但是并不会影响
+    private UserMapper userMapper;
 
     @Override
     public int addUser(User user) {
