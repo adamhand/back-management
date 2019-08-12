@@ -40,7 +40,7 @@ public class ProductService {
     }
 
     /**
-     * 如果缓存中没有，就放入缓存；㘝缓存中有，直接返回。
+     * 如果缓存中没有，就放入缓存；若缓存中有，直接返回。
      * @param id
      */
     public void getAmountById(String id){
